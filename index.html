@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kankülatör</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .calculator {
+            width: 300px;
+            display: flex;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            flex-direction: row;
+            flex-wrap: wrap;
+            background-color: #f9f9f9;
+        }
+        .calculator input[type="button"] {
+            width: 65px;
+            height: 65px;
+            padding: 10px;
+            margin: 5px 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .calculator input[type="text"] {
+            width: 275px;
+            height: 20px;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <input type="text" id="display" readonly>
+        <input type="button" value="1" onclick="plus('1')">
+        <input type="button" value="2" onclick="plus('2')">
+        <input type="button" value="3" onclick="plus('3')">
+        <input type="button" value="C" onclick="tozalash()">
+        <input type="button" value="4" onclick="plus('4')">
+        <input type="button" value="5" onclick="plus('5')">
+        <input type="button" value="6" onclick="plus('6')">
+        <input type="button" value="-" onclick="plus('-')">
+        <input type="button" value="7" onclick="plus('7')">
+        <input type="button" value="8" onclick="plus('8')">
+        <input type="button" value="9" onclick="plus('9')">
+        <input type="button" value="+" onclick="plus('+')">
+        <input type="button" value="*" onclick="plus('*')">
+        <input type="button" value="0" onclick="plus('0')">
+        <input type="button" value="/" onclick="plus('/')">
+        <input type="button" value="=" onclick="hisoblash()">
+    </div>
+
+    <script>
+        function plus(value) {
+            document.getElementById('display').value += value;
+        }
+
+        function tozalash() {
+            document.getElementById('display').value = '';
+        }
+
+        function hisoblash() {
+            try {
+                var result = eval(document.getElementById('display').value);
+                document.getElementById('display').value = result;
+            } catch (error) {
+                document.getElementById('display').value = 'Error';
+            }
+        }
+    </script>
+</body>
+</html>
